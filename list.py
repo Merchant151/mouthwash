@@ -1,0 +1,2 @@
+myWeeklyList = input()
+
