@@ -17,8 +17,8 @@ class shopping_list:
         self.listOfItems.append(li)
 
     #update list item
-    def update(self, li):
-        pass
+    def update(self, index, li):
+        self.listOfItems[index] = li
     #delete list item
     def delete(self, li):
         pass
@@ -28,7 +28,8 @@ class shopping_list:
 
     #get full list
     def getFullList(self):
-        pass
+        return self.listOfItems
+
     #savelist
     def saveList(self): 
         pass
