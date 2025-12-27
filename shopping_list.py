@@ -20,8 +20,8 @@ class shopping_list:
     def update(self, index, li):
         self.listOfItems[index] = li
     #delete list item
-    def delete(self, li):
-        pass
+    def delete(self, index):
+        self.listOfItems.pop(index)
     #get list item
     def getList(self,index = 0):
         return self.listOfItems[index]
@@ -32,9 +32,12 @@ class shopping_list:
 
     #savelist
     def saveList(self): 
+        with open('list.txt', 'w') as f: 
+            f.write(self.listOfItems)
         pass
     #openlist
-    def readList(self):
+    @staticmethod
+    def readList():
         pass
 
 @dataclass
