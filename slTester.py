@@ -1,4 +1,5 @@
-from shopping_list import shopping_list
+from operator import itemgetter
+from shopping_list import shopping_list,list_item
 
 myList = shopping_list()
 
@@ -9,3 +10,5 @@ myList.getFullList()
 myList.readList()
 
 myList.saveList()
+
+print(myList)
