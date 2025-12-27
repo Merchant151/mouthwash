@@ -1,0 +1,2 @@
+print('Welcome to Mouthwash, please enter in the items you are accoustum to getting weekly.')
+
