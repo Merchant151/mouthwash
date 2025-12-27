@@ -12,3 +12,4 @@ myList.readList()
 myList.saveList()
 
 print(myList)
+print(myList.getList())

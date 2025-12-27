@@ -7,7 +7,7 @@ class shopping_list:
         #TODO: create a constructor!
         logging.info("creating the init")
         if listOfItems == None:
-            listOfItems = list[list_item]
+            listOfItems: list[list_item] = []
         self.listOfItems = listOfItems
 
     #create list item
