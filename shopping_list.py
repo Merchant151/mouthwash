@@ -1,5 +1,5 @@
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 
 
 class shopping_list: 
@@ -33,13 +33,31 @@ class shopping_list:
     #savelist
     def saveList(self): 
         with open('list.txt', 'w') as f: 
-            f.write(self.listOfItems)
-        pass
+            for i in range(len(self.listOfItems)):
+                itemStr = shopping_list.itemToStr(self.listOfItems[i])
+                f.write(itemStr+"\n")
+
+    def itemToStr(item): 
+        #ussing a method here incase I need to change how this works
+        return str(asdict(item))
     #openlist
     @staticmethod
     def readList():
-        pass
+        outputList = []
+        with open('list.txt') as f:
+            for line in f: 
+                outItem = list_item()
+                line = line.strip()
+                line = line.replace('{',"")
+                line = line.replace('}',"")
+                attrs = line.split(',')
+                for i in attrs:
+                    key, value = i.split(':')
+                    setattr(outItem,key,value)
+                outputList.append(outItem)
+        return outputList
 
 @dataclass
 class list_item:
     name: str = field(default = 'mouthwash')
+    interval: int = field(default = 1)
