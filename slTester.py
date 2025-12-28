@@ -21,5 +21,35 @@ def all_funcs():
     myList.delete(0)
     print(myList.getFullList())
 
+def save_tester():
+    print('save test:')
+    save_list = shopping_list()
+    #create 10 items
+    for i in range(10):
+        item = list_item(f'itemNumber{i}',i)
+        save_list.create(item)
+    
+    print(save_list.getFullList())
+    saved = save_list.getFullList()
+    print('saving!')
+    save_list.saveList()
+    
+    print('loading!')
+    load_list = shopping_list(shopping_list.readList())
+    loaded = load_list.getFullList()
+    print(load_list.getFullList())
+
+    if(saved == loaded):
+        print('save and load successful')
+    else: 
+        print('save and load failed!')
+    
+
+    
+
+
 ##test all funcs
-all_funcs()
+#all_funcs()
+
+##test
+save_tester()

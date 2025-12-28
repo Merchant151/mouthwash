@@ -1,4 +1,5 @@
 import logging
+from operator import attrgetter
 from dataclasses import dataclass, field, asdict
 
 
@@ -54,6 +55,11 @@ class shopping_list:
                 for i in attrs:
                     key, value = i.split(':')
                     setattr(outItem,key,value)
+                    settme = attrgetter(key)
+                    x = settme(outItem)
+                    x = value
+                    print(value)
+                    print(outItem)
                 outputList.append(outItem)
         return outputList
 
