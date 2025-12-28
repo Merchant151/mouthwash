@@ -20,4 +20,14 @@ if list == None:
     println(WelcomeBack)
     println(Options)
 
+def readCommand():
+    print('please enter command')
+    user_in = input()
+    match user_in: 
+        case "display":
+            print('your: list ')
+            print('mouthwash')
+        case _: 
+            print('I do not recoginze this command')
 
+readCommand()
