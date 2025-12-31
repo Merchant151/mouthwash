@@ -47,19 +47,31 @@ class shopping_list:
         outputList = []
         with open('list.txt') as f:
             for line in f: 
-                outItem = list_item()
+                #outItem = list_item()
                 line = line.strip()
                 line = line.replace('{',"")
                 line = line.replace('}',"")
+                line = line.replace("'","")
+                line = line.replace(" ","")
                 attrs = line.split(',')
                 for i in attrs:
                     key, value = i.split(':')
-                    setattr(outItem,key,value)
-                    settme = attrgetter(key)
-                    x = settme(outItem)
-                    x = value
-                    print(value)
-                    print(outItem)
+                    #setattr(outItem,key,value)
+                    #settme = attrgetter(key)
+                    #x = settme(outItem)
+                    #x = value
+                    print(value ,end=' <-')
+                    print(key)
+                    name = None
+                    interval = None
+                    match key:
+                        case 'name':
+                            name = key
+                        case 'interval':
+                            interval = value
+                        case _:
+                            raise Exception(f"ERROR READING FILE PLS FIX! AT KEY:{key}|value:{value}")
+                outItem = list_item(name,interval)
                 outputList.append(outItem)
         return outputList
 
